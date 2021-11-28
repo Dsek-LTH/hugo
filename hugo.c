@@ -12,15 +12,18 @@
 #define CLEAR 24
 #define COLUMN 25
 
-#define BUSY_WAIT 20000
-#define CLOCK_WAIT 100
+#define DEFAULT_BUSY_WAIT 20000
+#define DEFAULT_CLOCK_WAIT 100
 
 const int rows[] = {2, 3, 12, 13, 14, 22, 21};
 const int nrows = sizeof(rows) / sizeof(int);
 
+int busy_wait_loops = DEFAULT_BUSY_WAIT;
+int clock_wait_loops = DEFAULT_CLOCK_WAIT;
+
 
 static void clock_wait() {
-	volatile int n=CLOCK_WAIT;
+	volatile int n=clock_wait_loops;
 	while(n --> 0);
 }
 
@@ -44,8 +47,15 @@ static void disable_row(int i) {
 	digitalWrite(rows[i], LOW);
 }
 
+void hugo_set_busy_wait(int loops) {
+	busy_wait_loops = loops;
+}
 
 void hugo_setup() {
+	char* value;
+	if ((value = getenv("HUGO_BUSY_WAIT")) != NULL) busy_wait_loops = atoi(value);
+	if ((value = getenv("HUGO_CLOCK_WAIT")) != NULL) clock_wait_loops = atoi(value);
+
 	wiringPiSetup();
 
 	pinMode(SHIFT, OUTPUT);
@@ -68,7 +78,7 @@ void hugo_begin_row(int i) {
 
 void hugo_end_row(int i) {
 	enable_row(i);
-	volatile int n=BUSY_WAIT;
+	volatile int n=busy_wait_loops;
 	while (n --> 0);
 	disable_row(i);
 	clear();
