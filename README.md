@@ -2,7 +2,7 @@
 
 Hugo is a blinkmojt (blinking gizmo) located above the door to Schäraton in IDét.
 
-Hugo is prunounced \[/y.go/](y’gå).
+Hugo is prunounced \[/y.go/] (y’gå).
 
 ## libhugo
 
@@ -21,4 +21,4 @@ The wave randomly spawns dots in it's wake that slowly fade away.
 
 ## udp
 
-Lstens on a given port (1337 currently) for images and displays them on the screen
+Listens on a given port (1337 currently) for images and displays them on the screen.
