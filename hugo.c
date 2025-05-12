@@ -8,14 +8,14 @@
 #define WIDTH HUGO_WIDTH
 #define HEIGHT HUGO_HEIGHT
 
-#define SHIFT 23
-#define CLEAR 24
-#define COLUMN 25
+#define SHIFT 27
+#define CLEAR 28
+#define COLUMN 29
 
 #define DEFAULT_BUSY_WAIT 20000
 #define DEFAULT_CLOCK_WAIT 100
 
-const int rows[] = {2, 3, 12, 13, 14, 22, 21};
+const int rows[] = {1, 4, 5, 6, 10, 11, 26};
 const int nrows = sizeof(rows) / sizeof(int);
 
 int busy_wait_loops = DEFAULT_BUSY_WAIT;
@@ -86,6 +86,7 @@ void hugo_end_row(int i) {
 
 void hugo_draw(bool pixel) {
 	digitalWrite(COLUMN, pixel ? HIGH : LOW);
+	clock_wait();
 	shift();
 }
 
