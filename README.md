@@ -1,6 +1,7 @@
 # Hugo
 
 Hugo is a blinkmojt (blinking gizmo) located above the door to Schäraton in IDét.
+
 Hugo is prunounced \[/y.go/](y’gå).
 
 ## libhugo
