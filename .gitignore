@@ -1,4 +1,10 @@
 libhugo.a
+hugo.h
 hugo.o
+
+life
+udp
+radar
+
 *.swp
 
