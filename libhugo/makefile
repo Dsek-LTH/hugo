@@ -4,4 +4,4 @@ libhugo.a: hugo.o
 
 .PHONY: clean
 clean:
-	rm .f *.a *.o
+	rm -f *.a *.o

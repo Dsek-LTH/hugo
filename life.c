@@ -33,7 +33,7 @@ uint32_t crc(uint8_t* data, size_t bytes) {
 int image[WIDTH * HEIGHT];
 int buffer[WIDTH * HEIGHT];
 
-#define MAX_LOOP_LENGTH 100
+#define MAX_LOOP_LENGTH 280
 uint32_t last_checksums[MAX_LOOP_LENGTH];
 int last_head = 0;
 
@@ -89,7 +89,7 @@ bool detect_loop() {
 	return false;
 }
 
-#define FRAMES_PER_GENERATION 50
+#define FRAMES_PER_GENERATION 60
 #define PAUSE_FRAMES 1000
 
 int main() {
